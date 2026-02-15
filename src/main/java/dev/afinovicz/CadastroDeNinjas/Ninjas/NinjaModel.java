@@ -1,13 +1,13 @@
-package dev.afinovicz.CadastroDeNinjas;
+package dev.afinovicz.CadastroDeNinjas.Ninjas;
 
-public class NinjaModel {
-    package dev.afinovicz.CadastroDeNinjas;
-
+import dev.afinovicz.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
-    // Entity transforma uma classe em uma entidade do BANCO DE DADOS!
+import java.util.List;
+
+// Entity transforma uma classe em uma entidade do BANCO DE DADOS!
     @Entity
-    @Table (name = "tb_cadastro")
+    @Table(name = "tb_cadastro")
     public class NinjaModel {
 
         @Id
@@ -15,8 +15,15 @@ import jakarta.persistence.*;
         private Long id;
 
         private String nome;
+
         private String email;
+
         private int idade;
+
+        @ManyToOne
+        // UM NINJA TEM UMA UNICA MISSAO
+        @JoinColumn(name = "missoes_id") // CHAVE ESTRANGEIRA
+        private MissoesModel missoes;
 
         public NinjaModel() {
         }
@@ -49,6 +56,5 @@ import jakarta.persistence.*;
 
         public void setIdade(int idade) {
             this.idade = idade;
-        }
-    }
-}
+        }}
+
