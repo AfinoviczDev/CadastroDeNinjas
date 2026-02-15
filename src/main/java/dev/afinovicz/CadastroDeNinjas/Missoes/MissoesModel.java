@@ -2,9 +2,15 @@ package dev.afinovicz.CadastroDeNinjas.Missoes;
 
 import dev.afinovicz.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_missoes")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class MissoesModel {
 
     @Id
@@ -17,46 +23,5 @@ public class MissoesModel {
     // UMA MISSAO VAI TER VARIOS NINJAS
     private NinjaModel ninjas;
 
-    public MissoesModel() {
-    }
-
-    public MissoesModel(Long id, String nomeMissao, String dificuldade, NinjaModel ninjas) {
-        this.id = id;
-        this.nomeMissao = nomeMissao;
-        this.dificuldade = dificuldade;
-        this.ninjas = ninjas;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNomeMissao() {
-        return nomeMissao;
-    }
-
-    public void setNomeMissao(String nomeMissao) {
-        this.nomeMissao = nomeMissao;
-    }
-
-    public String getDificuldade() {
-        return dificuldade;
-    }
-
-    public void setDificuldade(String dificuldade) {
-        this.dificuldade = dificuldade;
-    }
-
-    public NinjaModel getNinjas() {
-        return ninjas;
-    }
-
-    public void setNinjas(NinjaModel ninjas) {
-        this.ninjas = ninjas;
-    }
 }
 
